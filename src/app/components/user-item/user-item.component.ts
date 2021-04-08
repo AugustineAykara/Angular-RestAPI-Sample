@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Users } from 'src/app/models/Users';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-item',
@@ -10,7 +11,7 @@ export class UserItemComponent implements OnInit {
 
   @Input() user: Users;
 
-  constructor() { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -18,13 +19,20 @@ export class UserItemComponent implements OnInit {
   // dynamic class
   setClass() {
     let userStyle = {
-      userText : true,
+      userText: true,
     }
     return userStyle;
   }
 
+  // update Evenet
+  onUpdate(newName : string, user : any) {    
+    console.log("update user " + newName);
+    this.user.name = newName
+    user = this.usersService.updateName(user).subscribe();
+  }
+
   // delete Event
-  onDelete(user){
+  onDelete(user) {
     console.log("delete user")
   }
 }

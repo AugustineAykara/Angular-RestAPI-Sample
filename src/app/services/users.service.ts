@@ -1,30 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Users } from '../models/Users';
+import { Observable } from 'rxjs';
+
+const httpOptions = {
+  headers : new HttpHeaders({
+    'Content-Type' : 'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor() { }
+  baseUrl: string = 'http://localhost:8080/demo'
 
-  getUsers() {
-    return [
-      {
-        id: 1,
-        name: 'Augustine',
-        email: 'augustine@gmail.com'
-      },
-      {
-        id: 2,
-        name: 'Tony',
-        email: 'tony@gmail.com'
-      },
-      {
-        id: 3,
-        name: 'Don',
-        email: 'don@gmail.com'
-      },
-    ]
+  constructor(private http: HttpClient) { }
+
+  // GET USERS
+  getUsers(): Observable<Users[]> {
+    return this.http.get<Users[]>(this.baseUrl + "/all");
   }
 
+  // POST USERS
+  updateName(user: Users): Observable<any> {
+    const url = `${this.baseUrl}/${user.id}`;    
+    return this.http.put(url, user, httpOptions);
+  }
 }

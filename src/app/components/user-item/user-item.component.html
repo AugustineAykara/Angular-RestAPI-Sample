@@ -1,5 +1,7 @@
 <div [ngClass]="setClass()">
-    <p>{{user.id}} - {{user.name}} - {{user.email}}
+    <p>{{user.id}} - {{user.name}} - {{user.email}} : 
+        <input #newNameValue type="text" placeholder=" Enter updated name" value=""/>
+        <button (click)="onUpdate(newNameValue.value, user)" class="update"> Update </button>
         <button (click)="onDelete(user)" class="del"> X </button>
     </p>
 </div>

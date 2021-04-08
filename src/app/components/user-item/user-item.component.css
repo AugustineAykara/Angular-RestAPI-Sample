@@ -3,3 +3,8 @@
     font-weight: 500;   
     font-family: 'Courier New', Courier, monospace;
 }
+
+.del{
+    background-color: indianred;
+    font-size: 24px;
+}

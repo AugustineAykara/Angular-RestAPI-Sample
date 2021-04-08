@@ -18,8 +18,13 @@ export class UserItemComponent implements OnInit {
   // dynamic class
   setClass() {
     let userStyle = {
-      userText : true
+      userText : true,
     }
     return userStyle;
+  }
+
+  // delete Event
+  onDelete(user){
+    console.log("delete user")
   }
 }

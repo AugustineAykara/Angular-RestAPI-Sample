@@ -1,3 +1,5 @@
-<div [ngClass] = "setClass()">
-    <p>{{user.id}} - {{user.name}} - {{user.email}}</p>
+<div [ngClass]="setClass()">
+    <p>{{user.id}} - {{user.name}} - {{user.email}}
+        <button (click)="onDelete(user)" class="del"> X </button>
+    </p>
 </div>

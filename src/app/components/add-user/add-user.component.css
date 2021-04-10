@@ -1,0 +1,13 @@
+.form{
+    text-align: center;
+}
+
+.form input[type='text'] {
+    margin: 6px;
+    padding: 5px;
+}
+
+.form input[type='submit'] {
+    padding: 5px;
+    margin: 6px;
+}

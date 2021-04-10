@@ -18,14 +18,20 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  // GET USERS
+  // GET REQ
   getUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(this.baseUrl + "/all");
   }
 
-  // POST USERS
+  // PUT REQ
   updateName(user: Users): Observable<any> {
     const url = `${this.baseUrl}/${user.id}`;    
     return this.http.put(url, user, httpOptions);
+  }
+
+  // DEL REQ
+  deleteUser(user: Users): Observable<any> {
+    const url = `${this.baseUrl}/${user.id}`;
+    return this.http.delete(url, httpOptions);
   }
 }

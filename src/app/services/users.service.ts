@@ -34,4 +34,10 @@ export class UsersService {
     const url = `${this.baseUrl}/${user.id}`;
     return this.http.delete(url, httpOptions);
   }
+
+  // POST REQ
+  addUser(user: Users): Observable<Users> {
+    const url = this.baseUrl + "/add";
+    return this.http.post<Users>(url, user, httpOptions)
+  }
 }

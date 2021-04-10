@@ -1,6 +1,6 @@
 <h1> App Users </h1>
 
-<app-add-user></app-add-user>
+<app-add-user (addUser)="addUser($event)"></app-add-user>
 
 <app-user-item 
     *ngFor="let user of users " 

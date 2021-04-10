@@ -25,4 +25,13 @@ export class UsersComponent implements OnInit {
     this.usersServices.deleteUser(user).subscribe();
   }
 
+  addUser(user:Users){
+    this.users.push(user);
+    console.log(this.users);
+    
+    // this.usersServices.addUser(user).subscribe(user => {
+    //   this.users.push(user);
+    // });
+  }
+
 }

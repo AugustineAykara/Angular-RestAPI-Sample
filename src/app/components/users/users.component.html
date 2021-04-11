@@ -1,11 +1,7 @@
-<h1> App Users </h1>
-
 <app-add-user (addUser)="addUser($event)"></app-add-user>
-
+<h1> App Users </h1>
 <app-user-item 
     *ngFor="let user of users " 
     [user]="user"
-    (deleteUser) = "deleteUser($event)"
->
-
+    (deleteUser) = "deleteUser($event)">
 </app-user-item>
